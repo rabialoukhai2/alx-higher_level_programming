@@ -35,6 +35,6 @@ def text_indentation(text):
             else:
                 if text[a + 1] == '\n':
                      a += 1
-                     continue 
+                     continue
                 print(text[a], end="")
            a += 1
