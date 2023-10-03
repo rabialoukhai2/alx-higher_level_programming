@@ -8,8 +8,8 @@ def matrix_mul(m_a, m_b):
         m_a (list of lists of ints/floats): the first matrix.
         m_b (list of lists of ints/floats): the second matrix.
     Raises:
-        TypeError: if either m_a or m_b is not list or list of lists is not an integer or a float 
-                    or not a rectangle
+        TypeError: if either m_a or m_b is not list or list of lists is not an integer or a float
+        or not a rectangle
         ValueError: if either m_a or m_b is empty, or can’t be multiplied
     """
     if type(m_a) is not list:
