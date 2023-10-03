@@ -4,11 +4,9 @@
 
 def matrix_mul(m_a, m_b):
     """Multiply two matrices(lists of lists of integers/floats)
-    
     Args:
         m_a (list of lists of ints/floats): the first matrix.
         m_b (list of lists of ints/floats): the second matrix.
-    
     Raises:
         TypeError: if either m_a or m_b is not list or list of lists is not an integer or a float 
                     or not a rectangle
