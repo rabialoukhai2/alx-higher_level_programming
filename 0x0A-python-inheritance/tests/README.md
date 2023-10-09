@@ -1,1 +1,1 @@
-test 0x0a py inheritance 
+test 0x0a py inheritance
