@@ -1,22 +1,16 @@
 #!/usr/bin/node
-
 const request = require('request');
-const apiUrl = process.argv[2];
-
-if (!apiUrl) {
-  console.error('Usage: ./6-completed_tasks.js <API-URL>');
-  process.exit(1);
-}
-
-request(apiUrl, (error, response, body) => {
-  if (error || response.statusCode !== 200) {
-    console.error('Error fetching data:', error || `Status code: ${response.statusCode}`);
-    process.exit(1);
+request(process.argv[2], function (error, response, body) {
+  if (!error) {
+    const todos = JSON.parse(body);
+    const completed = {};
+    todos.forEach((todo) => {
+      if (todo.completed && completed[todo.userId] === undefined) {
+        completed[todo.userId] = 1;
+      } else if (todo.completed) {
+        completed[todo.userId] += 1;
+      }
+    });
+    console.log(completed);
   }
-
-  const completedTasksByUser = JSON.parse(body)
-    .filter(todo => todo.completed)
-    .reduce((acc, todo) => ((acc[todo.userId] = (acc[todo.userId] || 0) + 1), acc), {});
-
-  console.log(completedTasksByUser);
 });
